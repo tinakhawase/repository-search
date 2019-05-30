@@ -97,8 +97,11 @@
 		E90C775622A086AB001AFD7A /* GithubRepoSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				E90C778822A0872F001AFD7A /* Protocols */,
+				E90C778722A08726001AFD7A /* Views */,
+				E90C778622A08717001AFD7A /* ViewModels */,
+				E90C778522A08707001AFD7A /* Models */,
 				E90C775722A086AB001AFD7A /* AppDelegate.swift */,
-				E90C775922A086AB001AFD7A /* ViewController.swift */,
 				E90C775B22A086AB001AFD7A /* Main.storyboard */,
 				E90C775E22A086AD001AFD7A /* Assets.xcassets */,
 				E90C776022A086AD001AFD7A /* LaunchScreen.storyboard */,
@@ -123,6 +126,35 @@
 				E90C777922A086AE001AFD7A /* Info.plist */,
 			);
 			path = GithubRepoSearchAppUITests;
+			sourceTree = "<group>";
+		};
+		E90C778522A08707001AFD7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E90C778622A08717001AFD7A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		E90C778722A08726001AFD7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E90C775922A086AB001AFD7A /* ViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E90C778822A0872F001AFD7A /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
