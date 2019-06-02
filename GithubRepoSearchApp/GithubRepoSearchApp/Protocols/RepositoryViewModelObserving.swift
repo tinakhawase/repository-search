@@ -12,6 +12,6 @@ import Foundation
 protocol RepositoryViewModelObserving {
     // update the delegate/observer to update the results; this method will call `reloadData()`
     func updateSearchResults()
-    // tell the VC to `performSegue()` to the Details, and pass the Repo as the data
+    // tell the VC to nevigate to the Details, and pass the Repo as the data
     func navigateToDetail(with data: Repository)
 }

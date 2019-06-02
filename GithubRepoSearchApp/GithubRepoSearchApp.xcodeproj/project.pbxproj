@@ -27,6 +27,8 @@
 		E992403322A08FDF006B7748 /* DetailsViewModelObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E992402F22A08FDF006B7748 /* DetailsViewModelObserving.swift */; };
 		E992403422A08FDF006B7748 /* RepositoryViewModelObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = E992403022A08FDF006B7748 /* RepositoryViewModelObserving.swift */; };
 		E992403522A08FDF006B7748 /* RepositoryViewModelConfirming.swift in Sources */ = {isa = PBXBuildFile; fileRef = E992403122A08FDF006B7748 /* RepositoryViewModelConfirming.swift */; };
+		E992403D22A1D9AF006B7748 /* NetworkRequestProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E992403C22A1D9AF006B7748 /* NetworkRequestProviding.swift */; };
+		E992404022A1DA49006B7748 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E992403F22A1DA49006B7748 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,8 @@
 		E992402F22A08FDF006B7748 /* DetailsViewModelObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewModelObserving.swift; sourceTree = "<group>"; };
 		E992403022A08FDF006B7748 /* RepositoryViewModelObserving.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelObserving.swift; sourceTree = "<group>"; };
 		E992403122A08FDF006B7748 /* RepositoryViewModelConfirming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryViewModelConfirming.swift; sourceTree = "<group>"; };
+		E992403C22A1D9AF006B7748 /* NetworkRequestProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProviding.swift; sourceTree = "<group>"; };
+		E992403F22A1DA49006B7748 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 		E90C775622A086AB001AFD7A /* GithubRepoSearchApp */ = {
 			isa = PBXGroup;
 			children = (
+				E992403E22A1DA1A006B7748 /* Network */,
 				E90C778822A0872F001AFD7A /* Protocols */,
 				E90C778722A08726001AFD7A /* Views */,
 				E90C778622A08717001AFD7A /* ViewModels */,
@@ -203,6 +208,7 @@
 				E992402F22A08FDF006B7748 /* DetailsViewModelObserving.swift */,
 				E992403122A08FDF006B7748 /* RepositoryViewModelConfirming.swift */,
 				E992403022A08FDF006B7748 /* RepositoryViewModelObserving.swift */,
+				E992403C22A1D9AF006B7748 /* NetworkRequestProviding.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -212,6 +218,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E992403E22A1DA1A006B7748 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E992403F22A1DA49006B7748 /* NetworkRequest.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,6 +364,8 @@
 				E992402422A08FB5006B7748 /* SubscribersModel.swift in Sources */,
 				E992402522A08FB5006B7748 /* RepositoryModel.swift in Sources */,
 				E992402C22A08FD0006B7748 /* ListItemControllerTableViewCell.swift in Sources */,
+				E992403D22A1D9AF006B7748 /* NetworkRequestProviding.swift in Sources */,
+				E992404022A1DA49006B7748 /* NetworkRequest.swift in Sources */,
 				E992402922A08FC3006B7748 /* RepositoryViewModel.swift in Sources */,
 				E992403222A08FDF006B7748 /* DetailsViewModelConfirming.swift in Sources */,
 				E992402822A08FC3006B7748 /* DetailsViewModel.swift in Sources */,

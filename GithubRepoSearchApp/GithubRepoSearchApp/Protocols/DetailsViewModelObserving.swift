@@ -8,7 +8,7 @@
 
 import Foundation
 
-// The DetailsViewController should implement this, and assign itself as the delegate of the VM
+// The DetailsViewController should implement this, and assign itself as the delegate of the DVM
 protocol DetailsViewModelObserving {
     // update the delegate/observer to update the results; this method will call `reloadData()`
     func updateSubscriberResults()

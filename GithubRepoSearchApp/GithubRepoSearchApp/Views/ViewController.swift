@@ -11,8 +11,10 @@ import Kingfisher
 
 
 class ViewController: UIViewController {
+    // lazy initialization of RepositoryViewModel insatnce which is confirming to RepositoryViewModelConfirming
     private(set) lazy var viewModel:RepositoryViewModelConfirming = {
-        let _vm = RepositoryViewModel(observer:self)
+        let _networkService = NetworkRequest()
+        let _vm = RepositoryViewModel(observer:self, networkService: _networkService)
         return _vm
     }()
   
@@ -31,20 +33,21 @@ class ViewController: UIViewController {
     }
 }
 
-// ViewController
+// ViewController implementing UITableViewDelegate
 extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.didSelectRepository(at: indexPath.row)
     }
 }
 
-// ViewController
+// ViewController implementing UITableViewDataSource
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
          return self.viewModel.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        tableView.rowHeight = UITableView.automaticDimension
         let cellAtCurrentIndex = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListItemControllerTableViewCell
        
         let repository = self.viewModel.getItemAt(index:indexPath.row)
@@ -59,6 +62,8 @@ extension ViewController: UITableViewDataSource {
         return cellAtCurrentIndex
     }
 }
+
+// ViewController implementing UISearchBarDelegate
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -77,12 +82,14 @@ extension ViewController: UISearchBarDelegate{
     }
 }
 
-// RepositoryViewModelObserving implementation
+// ViewController implementing RepositoryViewModelObserving
 extension ViewController:RepositoryViewModelObserving{
+    // this method will be called from the VM to notify VC that data is available and you can load it now
     func updateSearchResults() {
        self.tableview.reloadData()
     }
     
+    // this method will be called from the VM to notify VC that it can navigate to the DVC with the repository it returned
     func navigateToDetail(with data: Repository) {
         let mainStoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let detailsVC = mainStoryboard.instantiateViewController(withIdentifier: "DetailViewController") as!

@@ -12,36 +12,32 @@ import Foundation
 class DetailsViewModel : DetailsViewModelConfirming{
     var subscribers = [SubscibersModelElement]()
     private var observer: DetailsViewModelObserving!
+    let networkService: NetworkRequestProviding
     
+    // mandatory init for DetailsViewModel
+    required init(observer: DetailsViewModelObserving, networkService: NetworkRequestProviding) {
+        self.observer = observer
+        self.networkService = networkService
+    }
+    
+    // fetchSubscribers will call the fetchSubscribers from the network service
+    // upon success the completion handler defined below will have a result
     func fetchSubscribers(repository: Repository) {
-        let baseUrl = URL(string: repository.subscribersURL)!
-        var request = URLRequest(url: baseUrl)
-        request.httpMethod = "GET"
-        let urlSession = URLSession(configuration: URLSessionConfiguration.default)
-        
-        let task = urlSession.dataTask(with: request) { [weak self] (data, response, error) in
-            let decoder = JSONDecoder()
-            if let data = data,
-                let serverResponse = try? decoder.decode([SubscibersModelElement].self, from: data),
-                let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode {
-                // reload the tableView
+        //
+        networkService.fetchSubscribers(repository: repository) { [weak self] (success, result) in
+            if success, let response = result as? [SubscibersModelElement] {
+                self?.subscribers = response
                 DispatchQueue.main.async { [weak self] in
-                    let response = serverResponse as [SubscibersModelElement]
-                    self?.subscribers = response
                     self?.observer.updateSubscriberResults()
                 }
+            } else {
+                // error
             }
         }
-        
-        task.resume()
-        
     }
     
+    // get the Subscriber model at a perticular index
     func getItemAt(index: Int) -> SubscibersModelElement {
         return self.subscribers[index]
-    }
-    
-    required init(observer: DetailsViewModelObserving) {
-        self.observer = observer
     }
 }

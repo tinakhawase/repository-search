@@ -11,11 +11,10 @@ import Foundation
 protocol DetailsViewModelConfirming {
     // subscribers from the network call
     var subscribers: [SubscibersModelElement] {get}
-    // Ask the VM for the subscribers for the repository; called from
+    // Ask the DVM for the subscribers for the repository; called from
     func fetchSubscribers(repository: Repository)
     // this is called by the tableView from cellForRowAt:indexPath
     func getItemAt(index: Int) -> SubscibersModelElement
-    // When you init a VM, pass the `self` of the VC as the observer/delegate
-    init(observer: DetailsViewModelObserving)
+    // When you init a DVM, pass the `self` of the DVC as the observer/delegate
+    init(observer: DetailsViewModelObserving, networkService: NetworkRequestProviding)
 }
-

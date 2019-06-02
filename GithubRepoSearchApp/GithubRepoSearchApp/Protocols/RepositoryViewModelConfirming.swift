@@ -21,5 +21,5 @@ protocol RepositoryViewModelConfirming {
     // this will clear all the items
     func clearAllItems()
     // When you init a VM, pass the `self` of the VC as the observer/delegate
-    init(observer: RepositoryViewModelObserving)
+    init(observer: RepositoryViewModelObserving, networkService: NetworkRequestProviding)
 }
