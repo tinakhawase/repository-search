@@ -86,7 +86,9 @@ extension ViewController: UISearchBarDelegate{
 extension ViewController:RepositoryViewModelObserving{
     // this method will be called from the VM to notify VC that data is available and you can load it now
     func updateSearchResults() {
-       self.tableview.reloadData()
+        DispatchQueue.main.async {
+           self.tableview.reloadData()
+        }
     }
     
     // this method will be called from the VM to notify VC that it can navigate to the DVC with the repository it returned

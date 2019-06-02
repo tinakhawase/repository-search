@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
         SubscribersTableView.dataSource = self
         SubscribersTableView.delegate = self
         self.viewModel.fetchSubscribers(repository: self.repository!)
-
+        
     }
 }
 
@@ -64,7 +64,11 @@ class SubscriberCellView: UITableViewCell {
 extension DetailViewController:DetailsViewModelObserving{
     // this method will be called from the DVM to inform DVC that the subscriber data is now available to load into the UI elements
     func updateSubscriberResults() {
-        self.label1.text = self.repository!.name
-        self.label1a.text = String(self.viewModel.subscribers.count)
-        self.SubscribersTableView.reloadData()
-    }}
+        DispatchQueue.main.async {
+            self.label1.text = self.repository!.name
+            self.label1a.text = String(self.viewModel.subscribers.count)
+            self.SubscribersTableView.reloadData()
+        }
+    }
+    
+}
